@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 
+@font-face {
+    font-family: "mojFont";
+    src: url('font/SaraPavkovic.ttf');
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -8,16 +14,22 @@
 }
 
 :root {
-    --narancasta: #ff905c;
-    --ruzicasta: #ff91a9;
-    --crvena: #e63350;
+    --plava: #003b6f;
+    --bijela: #ffffff;
+    --naglasak: #ece5d4;
 }
 
 body {
     font-family: "Montserrat", sans-serif;
-    background: radial-gradient(var(--narancasta), var(--ruzicasta));
     min-height: 100vh;
     color: #fff;
+    background-image: url('slike/pozadina.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /*
+    background: radial-gradient(var(--plava), var(--bijela));
+    */
 }
 
 /* header */
@@ -67,14 +79,14 @@ nav {
 /* CodePen URL: https://codepen.io/geoffgraham/pen/NWXZWEa */
 
 .hover-1 {
-    background: linear-gradient(#ffffff 0 0) var(--p, 0) / var(--p, 0) no-repeat;
+    background: linear-gradient(var(--naglasak) 0 0) var(--p, 0) / var(--p, 0) no-repeat;
     transition: .4s, background-position 0s;
 }
 
 .hover-1:hover {
     --p: 100%;
     padding: 10px;
-    color: var(--crvena);
+    color: var(--plava);
 }
 
 /* početna */
@@ -85,13 +97,12 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
 }
 
 h1 {
-    font-family: "Playfair", serif;
-    margin-top: 10vh;
-    font-size: 70pt;
+    font-family: "mojFont", sans-serif;
+    font-size: 80pt;
     text-align: center;
     text-shadow: #00000033 1px 1px 5px;
 }
@@ -99,8 +110,10 @@ h1 {
 h2 {
     font-family: "Playfair", serif;
     text-align: center;
-    width: 60vw;
+    width: 70vw;
+    font-size: 40pt;
     text-shadow: #00000033 1px 1px 5px;
+    margin-top: 20vh;
 }
 
 h3 {
@@ -115,16 +128,25 @@ p {
     font-size: 15pt;
     font-weight: 500;
     text-shadow: #00000016 1px 1px 5px;
+    line-height: 30px;
 }
 
 a {
     color: #fff;
 }
 
-.pocetak h2 {
+.pozdrav {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    font-size: 20pt;
+    font-size: 16pt;
+    text-align: center;
+    width: 70vw;
+}
+
+.pocetak h2 {
+    margin-bottom: 20px;
+    margin-top: 0;
+    font-size: 30pt;
 }
 
 .poveznica:hover {
@@ -132,24 +154,8 @@ a {
     text-decoration: none;
 }
 
-.gumb_a {
-    text-decoration: none;
-    margin-top: 20px;
-}
-
-.gumb {
-    border: 2px solid #fff;
-    border-radius: 100px;
-    transition: background-color 0.5s;
-}
-
-.gumb:hover {
-    background-color: var(--crvena);
-}
-
-.gumb_p {
-    padding: 20px 30px;
-    font-size: 14pt;
+.pocetak span {
+    font-style: italic;
 }
 
 /* o meni */
@@ -160,7 +166,7 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20vh;
+    gap: 15vh;
 }
 
 .tekst_o_meni {
@@ -172,26 +178,22 @@ a {
 }
 
 .o_meni h2 {
-    font-size: 40pt;
     text-align: left;
-    width: 60vw;
-    margin-top: 10vh;
 }
 
 .o_meni p {
-    width: 60vw;
-    line-height: 30px;
+    width: 70vw;
 }
 
-/* liste */
+/* filmovi */
 
-.liste {
+.filmovi {
     display: flex;
     justify-content: space-between;
     align-items: start;
     flex-direction: row;
-    width: 60vw;
-    padding-bottom: 10vh;
+    width: 70vw;
+    padding-bottom: 15vh;
 }
 
 .lista li {
@@ -200,37 +202,22 @@ a {
     font-weight: 500;
     text-shadow: #00000016 1px 1px 5px;
     margin-bottom: 10px;
-    transition: transform 0.5s;
+    transition: transform 0.5s, text-shadow 0.5s;
     cursor: default;
 }
 
 .lista li:hover {
     transform: translateX(15px);
+    text-shadow: var(--plava) 2px 2px 10px;
 }
 
 .lista h3 {
     text-align: left;
 }
 
-/* radovi */
+/* slike */
 
-.sekcija {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10vh;
-    padding: 15vh 0;
-}
-
-.sekcija h2 {
-    width: 80vw;
-    text-align: left;
-    font-size: 40pt;
-    margin-top: 10vh;
-}
-
-.radovi {
+.slike {
     width: 80vw;
     display: flex;
     flex-direction: row;
@@ -238,69 +225,122 @@ a {
     align-items: flex-start;
     flex-wrap: wrap;
     row-gap: 30px;
-    column-gap: 10px;
+    column-gap: 30px;
 }
 
-.radovi img {
-    height: 270px;
+.slike img {
+    height: 30vh;
     box-shadow: #00000016 3px 3px 5px;
     transition: transform 0.5s;
 }
 
-.radovi img:hover {
+.slike img:hover {
     transform: scale(1.1);
     z-index: 1;
 }
 
-/* videozapisi */
+.youtube {
+    width: 35vw;
+    height: 35vh;
+}
 
-.mediji {
-    width: 80vw;
+/* vjezbe */
+
+.vjezbe {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10vh;
+    padding-bottom: 15vh;
+    width: 70vw;
     margin-left: auto;
     margin-right: auto;
+}
+
+.vjezbe h2 {
+    width: 70vw;
+    text-align: left;
+}
+
+.vjezbe h3 {
+    width: 70vw;
+    text-align: left;
+    font-size: 30pt;
+    margin-bottom: 0;
+}
+
+.red {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 10vh;
-    padding: 15vh 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.videozapisi {
+.radovi {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 30px;
 }
 
-iframe {
-    width: 38vw;
-    height: 350px;
+.rad {
+    margin: 5px;
+    width: 250px;
 }
 
-video {
-    width: 38vw;
-    height: 350px;
-}
-
-audio {
+.rad img {
     width: 100%;
-}
-
-/* footer */
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 20vh;
-}
-
-footer p {
+    height: auto;
     transition: transform 0.5s;
 }
 
-footer p:hover {
+.rad img:hover {
     transform: scale(1.1);
+}
+
+.rad video {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s;
+}
+
+.rad video:hover {
+    transform: scale(1.1);
+}
+
+.opis {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 12pt;
+    line-height: 17pt;
+}
+
+/* video */
+
+.video {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+}
+
+.video h2 {
+    margin-top: 0;
+    width: auto;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.video_opis {
+    width: 45vw;
+}
+
+.video video {
+    width: 20vw;
 }
